@@ -26,7 +26,7 @@ module ActiveRecord
 
     def self.included(model)
       model.class_eval do
-        private_class_method *methods.grep(PRIVATE) # Deny existent others.
+        private_class_method(*methods.grep(PRIVATE)) # Deny existent others.
 
         class << self
           def exists? # Refuse arguments.
