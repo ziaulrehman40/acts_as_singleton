@@ -69,7 +69,7 @@ module ActiveRecord
         end
 
         def inspect
-          super.sub(/id: .+?, /) {} # Irrelevant.
+          super.sub(/id: \w.+?,/, {}) # Irrelevant.
         end
       end
     end
