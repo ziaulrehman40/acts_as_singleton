@@ -15,7 +15,7 @@ def setup_db
     end
 
     create_table :cottages do |t|
-      t.belongs_to :home_away_from_home, :polymorphic => true
+      t.belongs_to :home_away_from_home, :polymorphic => true, index: { name: 'index_cottages_on_home_away_from_home_type_and_home_id' }
     end
   end
 end
