@@ -22,11 +22,11 @@ module ActiveRecord
     # This pattern matches methods that should be made private because they
     # should not be used in singleton classes.
     PRIVATE = \
-      /^all$|^create(?!_reflection|_callback)|^find(?!er|_callback|_generated)|^first|^minimum$|^maximum$|^new$|d_sco|^update/
+      /^all$|^create(?!_reflection|_callback)|^find(?!er|_callback|_generated)|^first|^minimum$|^maximum$|^new$|d_sco|^update(?!_counters)/
 
     def self.included(model)
       model.class_eval do
-        private_class_method *methods.grep(PRIVATE) # Deny existent others.
+        private_class_method(*methods.grep(PRIVATE)) # Deny existent others.
 
         class << self
           def exists? # Refuse arguments.
@@ -69,7 +69,7 @@ module ActiveRecord
         end
 
         def inspect
-          super.sub(/id: .+?, /) {} # Irrelevant.
+          super.sub(/id: \w.+?,/, {}) # Irrelevant.
         end
       end
     end
