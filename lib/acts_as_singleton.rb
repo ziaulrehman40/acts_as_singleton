@@ -16,7 +16,7 @@ module ActiveRecord
   # upon including this module. Make sure your public class methods do not
   # clash with the <tt>ActiveRecord::Singleton::PRIVATE</tt> pattern, or
   # define them after including the module.
-  module Singleton
+  module ActsAsSingleton
     VERSION = "0.0.8"
 
     # This pattern matches methods that should be made private because they
@@ -83,7 +83,7 @@ module ActiveRecord
     #     acts_as_singleton # Equivalent to "include ActiveRecord::Singleton".
     #   end
     def acts_as_singleton
-      include Singleton
+      include ActsAsSingleton
     end
   end
 end

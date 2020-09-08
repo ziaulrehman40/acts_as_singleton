@@ -2,6 +2,12 @@
 
 http://github.com/stephencelis/acts_as_singleton
 
+== Changes from original
+
+This if forked from https://github.com/4ormat/acts_as_singleton which already
+had some fixes.
+
+Over that we fix an issue as I discuss it here: https://stackoverflow.com/q/63789467/4738391
 
 == DESCRIPTION
 
@@ -24,7 +30,7 @@ If you truly want that flexibility: http://github.com/stephencelis/kvc
 == SYNOPSIS
 
   class HomepageSettings < ActiveRecord::Base
-    include ActiveRecord::Singleton
+    include ActiveRecord::ActsAsSingleton
   end
 
 
